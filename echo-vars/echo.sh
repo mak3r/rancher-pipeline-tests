@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "CICD_GIT_REPO_NAME: ${CICD_GIT_REPO_NAME}"
 echo "CICD_GIT_URL: ${CICD_GIT_URL}"
