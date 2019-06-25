@@ -21,7 +21,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./echo-vars/Dockerfile
       buildContext: .
-      tag: pipeline/echo
+      tag: pipeline/echo:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34434
   - runScriptConfig:
       image: alpine
@@ -38,5 +38,12 @@ stages:
         echo "CICD_EXECUTION_ID: ${CICD_EXECUTION_ID}"
         echo "CICD_REGISTRY: ${CICD_REGISTRY}"
         echo "CICD_IMAGE: ${CICD_IMAGE}"
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./echo-vars/deployment.yaml
+  - runScriptConfig:
+      image: alpine
+      shellScript: 'cat ./echo-vars/echo.sh | xargs sh '
 timeout: 60
 notification: {}
