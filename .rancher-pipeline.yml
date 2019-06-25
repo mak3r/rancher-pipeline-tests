@@ -1,0 +1,8 @@
+stages:
+- name: Run
+  steps:
+  - runScriptConfig:
+      image: alpine:stable
+      shellScript: ./echo-vars/echo.sh
+timeout: 60
+notification: {}
