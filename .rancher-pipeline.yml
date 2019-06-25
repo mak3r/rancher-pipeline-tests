@@ -44,6 +44,6 @@ stages:
       path: ./echo-vars/deployment.yaml
   - runScriptConfig:
       image: alpine
-      shellScript: 'cat ./echo-vars/echo.sh | xargs sh '
+      shellScript: ./echo-vars/echo.sh
 timeout: 60
 notification: {}
