@@ -44,6 +44,6 @@ stages:
       path: ./echo-vars/deployment.yaml
   - runScriptConfig:
       image: alpine
-      shellScript: cat ./echo-vars/echo.sh | grep CICD | xargs sh
+      shellScript: cat ./echo-vars/echo.sh | grep CICD | xargs sh -c
 timeout: 60
 notification: {}
